@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Memorized Function</title>
+    <script>
+        // a simple memoize function that takes in a function
+        // and returns a memoized function      
+        const memoize = (fn) => {
+            let cacheArgs = {};
+            return (...args) => {
+                let n = args[0];  // just taking one argument here
+                if (n in cacheArgs) {
+                    console.log(n + 5);
+                    return cacheArgs[n];
+                }
+                else {
+                    //console.log('Calculating!');
+                    let result = fn(n);
+                    cacheArgs[n] = result;
+                    return result;
+                }
+            }
+        }
+
+        foo = function (x) {
+            console.log("calculating!");
+            console.log(x+5);
+            return x + 5;
+        }
+
+        var memoizedFoo = memoize(foo);
+
+        memoizedFoo(5);
+        // calculating!
+        // 10
+
+        memoizedFoo(5);
+        // 10 
+
+        memoizedFoo(10);
+        // calculating!
+        // 15
+    </script>
+</head>
+<body>
+
+</body>
+</html>
