@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .img-couter-div {
+            text-align: center;
+        }
+        .img-couter-div > img {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-couter-div">
+        <img src="Cow_cartoon_04.svg" id="cow"/>
+        <div id="counter">0</div>
+    </div>
+    <script>
+        document.getElementById("cow").onclick = function () {
+            var counterDiv = document.getElementById("counter");
+            var count = parseInt(counterDiv.textContent) + 1;
+            counterDiv.textContent = count;
+        }
+    </script>
+</body>
+</html>
